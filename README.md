@@ -13,8 +13,8 @@
 
 Куратор: Авдюшина Анна Евгеньевна
 
-[Краткое описание РПД](/blob/main/About.md)
+[Краткое описание РПД](About.md)
 
-Позиция данной дисциплины в ОП приведенна по ([ссылке](https://github.com/Aleeweek/ITMO-command_47/blob/main/OP_position.md))
+Позиция данной дисциплины в ОП приведенна по ([ссылке](OP_position.md))
 
-Содержание дисциплины ([посмотреть](https://github.com/Aleeweek/ITMO-command_47/blob/main/content_table.md))
+Содержание дисциплины ([посмотреть](content_table.md))
