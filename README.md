@@ -1,6 +1,6 @@
 # Группа 47
 
-результаты работы по курсу ИТМО "Преподавание современного ИИ на топ-уровне: системное видение" основанной на [КРМ-3.0](https://docs.google.com/spreadsheets/d/11Rgoij-ONhriy_RaeV1KVcZzL4flXFH_vnYbwRMnK54/edit?usp=sharing)
+результаты работы по курсу ИТМО "Преподавание современного ИИ на топ-уровне: системное видение" основанной на [КРМ-3.0](https://docs.google.com/spreadsheets/d/12P2yGZSkDgTELrZLS0HHdVlQ6k4TsJB2/edit?usp=sharing&ouid=102532098294721562437&rtpof=true&sd=true)
 
 # Команда
 
@@ -13,7 +13,7 @@
 
 Куратор: Авдюшина Анна Евгеньевна
 
-[Краткое описание РПД](https://github.com/Aleeweek/ITMO-command_47/blob/main/About.md)
+[Краткое описание РПД](/blob/main/About.md)
 
 Позиция данной дисциплины в ОП приведенна по ([ссылке](https://github.com/Aleeweek/ITMO-command_47/blob/main/OP_position.md))
 
