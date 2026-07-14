@@ -1,6 +1,6 @@
 # Группа 47
 
-результаты работы по курсу ИТМО "Преподавание современного ИИ на топ-уровне: системное видение" основанной на [КРМ-3.0](https://docs.google.com/spreadsheets/d/12P2yGZSkDgTELrZLS0HHdVlQ6k4TsJB2/edit?usp=sharing&ouid=102532098294721562437&rtpof=true&sd=true)
+результаты работы по курсу ИТМО "Преподавание современного ИИ на топ-уровне: системное видение" основанные на [КРМ-3.0](https://docs.google.com/spreadsheets/d/12P2yGZSkDgTELrZLS0HHdVlQ6k4TsJB2/edit?usp=sharing&ouid=102532098294721562437&rtpof=true&sd=true)
 
 # Команда
 
