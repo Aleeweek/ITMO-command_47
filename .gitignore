@@ -1,0 +1,4 @@
+# ignore all logs
+**/logs
+*.log
+**/other
