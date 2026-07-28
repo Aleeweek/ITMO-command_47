@@ -84,7 +84,7 @@ AFTER INSERT ON STORAGE_TRANSACTIONS
 FOR EACH ROW
 EXECUTE FUNCTION UPDATE_CAR_PARTS_QUANTITY();
 ```
- 
+
 ### Скалярная функция 1. Суммирует цены всех услуг по заказам со статусами "ожидание", "в работе" и "выполнен".
 ```
 CREATE OR REPLACE FUNCTION CALCULATE_TOTAL_ORDERS_PRICE()
