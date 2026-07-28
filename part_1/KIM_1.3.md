@@ -22,10 +22,10 @@
 ## Пример на тему "Автосервис"
 ### Триггер 1. Проверяет занятость механика перед назначением нового заказа
 ```
-CREATE OR REPLACE FUNCTION CARSERVICE_5.CHECK_MECHANIC_AVAILABILITY() RETURNS TRIGGER AS $$
+CREATE OR REPLACE FUNCTION CHECK_MECHANIC_AVAILABILITY() RETURNS TRIGGER AS $$
 BEGIN
   IF (EXISTS (
-    SELECT 1 FROM CARSERVICE_5.ORDERS WHERE EMPLOYEE_ID = NEW.EMPLOYEE_ID and STATUS = 'в работе'
+    SELECT 1 FROM ORDERS WHERE EMPLOYEE_ID = NEW.EMPLOYEE_ID and STATUS = 'в работе'
   )) AND NEW.STATUS = 'в работе' THEN RAISE EXCEPTION 'Механик уже выполняет другой заказ';
   END IF;
   RETURN NEW;
@@ -33,8 +33,8 @@ END;
 $$ LANGUAGE PLPGSQL;
 
 CREATE TRIGGER TR_CHECK_MECHANIC_AVAILABILITY
-BEFORE INSERT OR UPDATE ON CARSERVICE_5.ORDERS
-FOR EACH ROW EXECUTE FUNCTION CARSERVICE_5.CHECK_MECHANIC_AVAILABILITY();
+BEFORE INSERT OR UPDATE ON ORDERS
+FOR EACH ROW EXECUTE FUNCTION CHECK_MECHANIC_AVAILABILITY();
 ```
 
 ### Триггер 2. Контролирует даты создания заказа, запрещает создание заказов с прошедшей датой.
@@ -57,7 +57,7 @@ EXECUTE FUNCTION CHECK_ORDER_DATE_NOT_IN_PAST();
 
 ### Триггер 3. Обновляет количество запчастей на складе при поступлении или списании, проверяет остатки на складе. 
 ```
-CREATE OR REPLACE FUNCTION CARSERVICE_5.UPDATE_CAR_PARTS_QUANTITY()
+CREATE OR REPLACE FUNCTION UPDATE_CAR_PARTS_QUANTITY()
 RETURNS TRIGGER AS $$
 BEGIN
     IF NEW.TYPE = 'поступление' THEN
@@ -106,7 +106,7 @@ $$ LANGUAGE PLPGSQL;
 
 ### Скалярная функция 2. Фильтрует платежи по типу и вычисляет их общую сумму.
 ```
-CREATE OR REPLACE FUNCTION CARSERVICE_5.CALCULATE_PAYMENTS_BY_TYPE(PAYMENT_TYPE VARCHAR(11))
+CREATE OR REPLACE FUNCTION CALCULATE_PAYMENTS_BY_TYPE(PAYMENT_TYPE VARCHAR(11))
 RETURNS BIGINT
 AS $$
 DECLARE RESULT INT;
@@ -201,19 +201,19 @@ CREATE UNIQUE INDEX ON CARS (NUMBER);
 
 ### Ограничение 1. Проверка корректности зарплаты сотрудников, то есть исключает нулевые или отрицательные значения зарплаты.
 ```
-ALTER TABLE CARSERVICE_5.EMPLOYEES
+ALTER TABLE EMPLOYEES
 ADD CONSTRAINT CHK_SALARY CHECK (SALARY > 0);
 ```
 
 ### Ограничение 2. Запрещает бесплатные или отрицательные цены на услуги.
 ```
-ALTER TABLE CARSERVICE_5.SERVICES
+ALTER TABLE SERVICES
 ADD CONSTRAINT CHK_PRICE CHECK (PRICE > 0);
 ```
 
 ### Ограничение 3. Обеспечивает корректность статусов заказов через ограничение допустимых статусов.
 ```
-ALTER TABLE CARSERVICE_5.ORDERS
+ALTER TABLE ORDERS
 ADD CONSTRAINT CHK_STATUS CHECK (STATUS IN ('ожидание', 'в работе', 'выполнен', 'отменен'));
 ```
 
